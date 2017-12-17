@@ -38,7 +38,7 @@ const example = (
     <div className="col-xs-12 text-center">
       <Workbook filename="example.xlsx" element={<button className="btn btn-lg btn-primary">Try me!</button>}>
         <Workbook.Sheet data={() => data1} name="Sheet A">
-          <Workbook.Column label="Foo" value="foo"/>
+          <Workbook.Column label="Foo" value="foo" width="100" />
           <Workbook.Column label="Bar" value="bar"/>
         </Workbook.Sheet>
         <Workbook.Sheet data={data2} name="Another sheet">

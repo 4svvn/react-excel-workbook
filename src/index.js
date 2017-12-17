@@ -122,8 +122,8 @@ export class Workbook extends Component {
     }
 
     React.Children.forEach(this.props.children, sheet => {
-      const width = column.props.width ? column.props.width : '20'
       const columnWidth = React.Children.map(sheet.props.children, column => {
+        const width = column.props.width ? column.props.width : '20'
         return { 'wch': width }
       })
       wb.Sheets[sheet.props.name] = sheet_from_array_of_arrays(this.createSheetData(sheet), columnWidth)
