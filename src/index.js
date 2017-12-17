@@ -122,7 +122,11 @@ export class Workbook extends Component {
     }
 
     React.Children.forEach(this.props.children, sheet => {
-      wb.Sheets[sheet.props.name] = sheet_from_array_of_arrays(this.createSheetData(sheet))
+      const width = column.props.width ? column.props.width : '20'
+      const columnWidth = React.Children.map(sheet.props.children, column => {
+        return { 'wch': width }
+      })
+      wb.Sheets[sheet.props.name] = sheet_from_array_of_arrays(this.createSheetData(sheet), columnWidth)
     })
 
     const wbout = XLSX.write(wb, {bookType:'xlsx', bookSST:true, type: 'binary'})
